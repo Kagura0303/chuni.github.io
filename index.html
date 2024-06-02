@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>神樂的Page</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden; /* Prevents scrollbars from showing */
+        }
+
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none; /* Prevents interaction with bubbles */
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Generate multiple bubbles with different properties */
+        .bubble:nth-child(1) { left: 10%; width: 25px; height: 25px; animation-duration: 12s; animation-delay: 2s; }
+        .bubble:nth-child(2) { left: 20%; width: 15px; height: 15px; animation-duration: 8s; animation-delay: 4s; }
+        .bubble:nth-child(3) { left: 30%; width: 30px; height: 30px; animation-duration: 10s; animation-delay: 6s; }
+        .bubble:nth-child(4) { left: 40%; width: 20px; height: 20px; animation-duration: 14s; animation-delay: 1s; }
+        .bubble:nth-child(5) { left: 50%; width: 25px; height: 25px; animation-duration: 12s; animation-delay: 3s; }
+        .bubble:nth-child(6) { left: 60%; width: 20px; height: 20px; animation-duration: 10s; animation-delay: 5s; }
+        .bubble:nth-child(7) { left: 70%; width: 15px; height: 15px; animation-duration: 8s; animation-delay: 7s; }
+        .bubble:nth-child(8) { left: 80%; width: 30px; height: 30px; animation-duration: 10s; animation-delay: 2s; }
+        .bubble:nth-child(9) { left: 90%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: 4s; }
+
+        #ig, #fb, #yt {
+            position: absolute; /* Set position to absolute */
+        }
+
+        #ig {
+            bottom: -25%;
+            width: 100px; /* Larger size for Instagram icon */
+            height: 100px;
+            cursor: pointer; /* Change cursor to pointer */
+            pointer-events: auto; /* Allow interaction with the Instagram button */
+            animation: rise 10s infinite ease-in; /* Add animation property */
+        }
+
+        #fb {
+            bottom: -12%;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            pointer-events: auto;
+            animation: rise 11s infinite ease-in; /* Add animation property */
+            left: calc(50% - 25%); /* Position 100px to the left of Instagram button */
+        }
+
+        #yt {
+            bottom: -18%;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            pointer-events: auto;
+            animation: rise 9s infinite ease-in; /* Add animation property */
+            left: calc(50% + 25%);
+        }
+
+
+
+        .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: absolute;
+    left: 15%;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
+.glow-on-hover2 {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: absolute;
+    left: 75%;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover2:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover2:active {
+    color: #000
+}
+
+.glow-on-hover2:active:after {
+    background: transparent;
+}
+
+.glow-on-hover2:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover2:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+    #pic1{
+            bottom: -25%;
+            width: 100px; 
+            height: 100px;
+            pointer-events: auto; 
+            animation: 19s rise 11s infinite ease-in; 
+            position: absolute;
+        }
+
+        #pic2{
+            bottom: -25%;
+            width: 100px; 
+            height: 100px;
+            pointer-events: auto; 
+            animation: 18s rise 7s infinite ease-in; 
+            position: absolute;
+            left: 15%;
+        }
+
+
+        #pic3{
+            bottom: -25%;
+            width: 100px; 
+            height: 100px;
+            pointer-events: auto; 
+            animation: 15s rise 9s infinite ease-in; 
+            position: absolute;
+            left: 75%;
+        }
+
+
+        #pic4{
+            bottom: -25%;
+            width: 100px; 
+            height: 100px;
+            pointer-events: auto; 
+            animation: 15s rise 8s infinite ease-in; 
+            position: absolute;
+            left: 45%;
+        }
+
+
+
+    </style>
+    
+    
+</head>
+<body>
+
+    <button class="glow-on-hover" type="button" id="button1">按了不會吃虧啦</button>
+    <button class="glow-on-hover2" type="button" id="button2">試試看按嘛~</button>
+
+    <audio controls style="display:none;" id="bgm" loop>
+        <source src="./asset/bgm.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio controls style="display:none;" id="bgm2" loop>
+        <source src="./asset/bgm2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <a href="https://www.instagram.com/kaian_0303/" onmouseenter="stopAnimation(this)" onmouseleave="startAnimation(this)" >
+        <img id="ig" src="./asset/instagram.png">
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=100010025250179" onmouseenter="stopAnimation(this)" onmouseleave="startAnimation(this)" >
+        <img id="fb" src="./asset/facebook.png">
+    </a>
+
+    <a href="https://youtube.com/@kagura8763?si=HwZN-52M1-wq298h" onmouseenter="stopAnimation(this)" onmouseleave="startAnimation(this)">
+        <img id="yt" src="./asset/youtube.png">
+    </a>
+
+    <img id="pic1" src="./asset/1.png">
+    <img id="pic2" src="./asset/2.png">
+    <img id="pic3" src="./asset/3.png">
+    <img id="pic4" src="./asset/4.png">
+
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <script>
+        function stopAnimation(element) {
+            var bubble = element.querySelector('img');
+            bubble.style.animationPlayState = "paused";
+        }
+
+        function startAnimation(element) {
+            var bubble = element.querySelector('img');
+            bubble.style.animationPlayState = "running";
+        }
+
+        // Function to generate random number between min and max inclusive
+        function getRandomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Function to update button position for the specified button ID
+        function updateButtonPosition(buttonId) {
+            var button = document.getElementById(buttonId);
+            button.style.left = getRandomInRange(0, 100) + "%";
+        }
+
+        // Initialize button positions on page load
+        window.onload = function() {
+            updateButtonPosition("ig");
+            updateButtonPosition("fb");
+            updateButtonPosition("yt");
+        };
+
+        var button1 = document.getElementById("button1");
+        var button2 = document.getElementById("button2");
+        var audio1 = document.getElementById("bgm");
+        var audio2 = document.getElementById("bgm2");
+
+        button1.addEventListener("click", function() {
+            // Toggle play/pause for the first audio
+            if (audio1.paused) {
+                audio1.play();
+                button1.textContent = "暫停暫停！！！";
+            } else {
+                audio1.pause();
+                button1.textContent = "繼續嗎？好耶！";
+            }
+        });
+
+        button2.addEventListener("click", function() {
+            // Toggle play/pause for the second audio
+            if (audio2.paused) {
+                audio2.play();
+                button2.textContent = "火車不香嗎嚶嚶嚶";
+            } else {
+                audio2.pause();
+                button2.textContent = "好耶，叮叮叮！";
+            }
+        });
+
+        // Attach updateButtonPosition function to each button on animation iteration
+        document.getElementById("ig").addEventListener("animationiteration", function() {
+            updateButtonPosition("ig");
+        });
+
+        document.getElementById("fb").addEventListener("animationiteration", function() {
+            updateButtonPosition("fb");
+        });
+
+        document.getElementById("yt").addEventListener("animationiteration", function() {
+            updateButtonPosition("yt");
+        });
+
+        // Array of image URLs
+        var imageUrls = [
+            "./asset/kokomi.jpeg",
+            "./asset/kokomi2.png",
+            "./asset/kokomi3.jpg"
+        ];
+
+        // Index to track the current image
+        var currentImageIndex = 0;
+
+        // Function to change the background image
+        function changeBackgroundImage() {
+            // Update the background image URL
+            document.body.style.backgroundImage = "url(" + imageUrls[currentImageIndex] + ")";
+
+            // Increment the index for the next image
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+        }
+
+        // Call the changeBackgroundImage function initially
+        changeBackgroundImage();
+
+        // Set interval to change background image every 5 seconds
+        setInterval(changeBackgroundImage, 5000);
+
+
+function preloadAudio(audioUrls) {
+            audioUrls.forEach(function(url) {
+                var audio = new Audio();
+                audio.src = url;
+            });
+        }
+
+        var audioUrls = [
+            "./asset/bgm.mp3","./asset/bgm2.mp3"
+            // Add more audio URLs here
+        ];
+
+        window.onload = function() {
+            preloadAudio(audioUrls);
+
+        };
+
+
+        function preloadImages(imageUrls) {
+            imageUrls.forEach(function(url) {
+                var img = new Image();
+                img.src = url;
+            });
+        }
+
+        var imageUrls = [
+            "./asset/kokomi.jpeg",
+            "./asset/kokomi2.png",
+            "./asset/kokomi3.jpg",
+            "./asset/1.png",
+            "./asset/2.png",
+            "./asset/3.png",
+            "./asset/4.png"
+            // Add more image URLs here
+        ];
+
+        window.onload = function() {
+            preloadImages(imageUrls);
+            // Additional initialization code here
+        };
+
+
+    </script>
+</body>
+</html>
+
