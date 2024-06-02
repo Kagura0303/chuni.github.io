@@ -418,14 +418,14 @@ function preloadAudio(audioUrls) {
         };
 
 
-        function preloadImages(imageUrls) {
+        function preloadImages(imageUrls2) {
             imageUrls.forEach(function(url) {
                 var img = new Image();
                 img.src = url;
             });
         }
 
-        var imageUrls = [
+        var imageUrls2 = [
             "./asset/kokomi.jpeg",
             "./asset/kokomi2.png",
             "./asset/kokomi3.jpg",
@@ -437,7 +437,7 @@ function preloadAudio(audioUrls) {
         ];
 
         window.onload = function() {
-            preloadImages(imageUrls);
+            preloadImages(imageUrls2);
             // Additional initialization code here
         };
 
